@@ -1,3 +1,6 @@
 name age
 alice 21
+alice 22
+alice 23
 ryan 30
+ryan 31

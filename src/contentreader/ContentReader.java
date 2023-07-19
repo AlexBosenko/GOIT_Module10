@@ -1,5 +1,7 @@
 package contentreader;
 
+import objecttojson.User;
+
 import java.io.File;
 import java.util.*;
 
@@ -20,8 +22,8 @@ public class ContentReader implements FileContentReader {
     }
 
     @Override
-    public Map<String, Integer> read(File file, int rowSkip) {
-        Map<String, Integer> result = new HashMap<>();
+    public List<User> read(File file, int rowSkip) {
+        List<User> listUser = new ArrayList<>();
         int rowCount = 0;
 
         try(Scanner scanner = new Scanner(file)) {
@@ -34,13 +36,13 @@ public class ContentReader implements FileContentReader {
 
                 String[] dataRow = row.split(" ");
                 if (dataRow.length == 2) {
-                    result.put(dataRow[0], Integer.valueOf(dataRow[1]));
+                    listUser.add(new User(dataRow[0], Integer.valueOf(dataRow[1])));
                 }
             }
         } catch (Exception ex) {
             ex.printStackTrace();
         }
 
-        return result;
+        return listUser;
     }
 }
