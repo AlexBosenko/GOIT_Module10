@@ -15,9 +15,7 @@ public class CheckNumberFormat {
     private static boolean numberInFormat(String number, String regex) {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(number);
-        if (matcher.find()) {
-            return true;
-        }
-        return false;
+
+        return matcher.find();
     }
 }
